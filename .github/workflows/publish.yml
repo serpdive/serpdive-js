@@ -1,7 +1,12 @@
 name: Publish to npm
 
-# Publishes on a version tag (v0.1.0, v1.2.3...). Needs an npm granular
-# access token with publish rights, stored as the NPM_TOKEN repo secret.
+# Publishes on a version tag (v0.1.0, v1.2.3...). Uses npm trusted publishing
+# (OIDC): no token stored anywhere. Configure on npmjs.com under the package's
+# Settings > Trusted Publisher: GitHub Actions, org "serpdive", repo
+# "serpdive-js", workflow "publish.yml". Requires npm >= 11.5.1, hence the
+# upgrade step. The first release (0.1.0) was published manually: npm was
+# rejecting first-time package creation from granular tokens with a misleading
+# E404 (bypass-2FA tokens are being phased out for direct publishing).
 on:
   push:
     tags: ["v*"]
@@ -11,14 +16,14 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       id-token: write
+      contents: read
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
           registry-url: "https://registry.npmjs.org"
+      - run: npm install -g npm@latest
       - run: npm ci
       - run: npm test
-      - run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: npm publish --access public
