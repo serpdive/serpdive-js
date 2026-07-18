@@ -1,6 +1,6 @@
 # SERPdive TypeScript SDK
 
-The official TypeScript/JavaScript client for [SERPdive](https://serpdive.com), the AI Search API: ask a question, get answer-ready web content that is extracted, cleaned, and sized for an LLM. On a [public, replayable 1,000-question benchmark](https://github.com/edendalexis/serpdive-benchmark), SERPdive runs at the same speed as Tavily, feeds your LLM 20.2% fewer tokens, and wins 60.7% of decided quality duels.
+The official TypeScript/JavaScript client for [SERPdive](https://serpdive.com), the AI Search API: ask a question, get answer-ready web content that is extracted, cleaned, and sized for an LLM. On a [public, replayable 1,000-question benchmark](https://github.com/edendalexis/serpdive-benchmark), SERPdive runs at the same speed as Tavily, feeds your LLM 20.2% fewer tokens, and wins 60.7% of decided quality duels. If you are evaluating Tavily alternatives, that benchmark is public and replayable end to end: same questions, same judge, your machine.
 
 Zero dependencies. Works in Node 18+, Bun, Deno, and edge runtimes (anywhere `fetch` exists). Full TypeScript types included.
 
