@@ -1,7 +1,5 @@
 {
   "name": "serpdive",
-    "tavily-alternative",
-    "tavily",
   "version": "0.1.0",
   "description": "Official TypeScript SDK for SERPdive, the AI Search API: clean, answer-ready web content for LLMs and agents, with 20.2% fewer tokens than Tavily on a public benchmark",
   "license": "MIT",
